@@ -1,0 +1,132 @@
+.popup {
+
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba($color-black, 0.8);
+    z-index: 99999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    background-color: rgba($color-black, 0.3);
+
+    @supports (-webkit-backdrop-filter:blur(10px)) or (backdrop-filter: blur(10px)) {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter:blur(10px);
+        background-color: rgba($color-black, 0.3);
+    }
+
+
+    &:target{
+        opacity: 1;
+        visibility: visible
+
+    }
+
+    &__close{
+
+
+        &:link,
+        &:visited{
+            color: $color-grey-dark;
+            position: absolute;
+            top: 2.5rem;
+            right: 2.5rem;
+            font-size: 3rem;
+            text-decoration: none;
+            display: inline-block;
+            line-height: 1;
+        }
+
+        &:hover{
+            color: $color-primary;
+        }
+    }
+
+
+    &__content {
+
+       
+        @include absCenter;
+        width: 82%;
+        background-color: $color-white;
+        box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+        border-radius: 3px;
+        display: table;
+        overflow: hidden;
+        
+
+
+         
+
+          @include respond(tab-land){
+               display: flex;
+               
+          }
+    }
+
+    &__left {
+        width: 33.333333%;
+        display: table-cell;
+
+
+
+         
+         @include respond(tab-land){
+               display: flex;
+               flex-direction: column;
+               
+          }
+
+    }
+
+    &__right {
+        width: 66.666667%;
+        vertical-align: middle;
+        display: table-cell;
+        padding: 3rem 5rem;
+
+
+         
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+
+
+        
+         
+         @include respond(tab-land){
+               height: 100%;
+        }
+
+        
+
+
+
+         
+    }
+
+    &__text {
+        font-size: 1.4rem;
+        margin-bottom: 4rem;
+
+        column-count: 2;
+        column-gap: 4rem; //1rem = 14px
+        column-rule: 1px solid #eee;
+
+         
+        // Amirreza Aminian     ...  
+        // Amirreza Aminian     ...
+        // Amirreza Aminian     ...
+
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+    }
+}
